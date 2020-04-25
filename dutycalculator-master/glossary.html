@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="A web application that calculates the import tax to bring in items through a thirdparty shipper">
+    <meta name="keywords" content="Duty, Duty Calculator, Duty Calculation, Calculator, Bahamas Duty Calculator, Bahamas
+    Duty Calculation, Bahamas Duty Calculator">
+    <meta name="author" content="Antone Evans, Bry'Ton Rolle, Timothy Itodo">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Links -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/SketchIcon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Get data js  -->
+    <script src="js/get-data.js"></script>
+
+    <title>Know Da Price - Duty Estimation</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav_bar">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/navLogo.png" width="225" height="80" alt="Duty Estimator Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-right" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="index.html">Home</a>
+                <a class="nav-item nav-link" href="about.html">About</a>
+                <a class="nav-item nav-link active" href="#">Glossary <span class="sr-only">(current)</span> </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container -->
+    <div class="container" id="main_container">
+
+        <div id="duty_rate_glossary">
+            <h4>Duty Rates</h4>
+            <select class="form-control" id="product_category" onchange="generate_duty_rate_table(this.id)">
+                <option value="">Choose Product's category</option>
+            </select>
+        </div>
+
+        <div id="levy_rate_glossary">
+            <h4>Levy Rates</h4>
+            <select class="form-control" id="levy_category" onchange="generate_levy_rate_table(this.id)">
+                <option value="">Choose Product's category</option>
+            </select>
+        </div>
+
+        <div id="processing_fee_glossary">
+            <h4>Processing Fee Exceptions</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Fee</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Entry for Goods Imported Conditionally Duty free under the Hawksbill Creek Agreement</td>
+                        <td>$10</td>
+                    </tr>
+                    <tr>
+                        <td>Reports Inwards of Vessels</td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td>Aircraft General Declaration Inwards and Outwards</td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td>Inward Declaration and Cruising Permit for Private Aircraft entering The Bahamas</td>
+                        <td>$50</td>
+                    </tr>
+                    <tr>
+                        <td>Application for Release of Perishable or Other Goods Prior to Payment of Duty</td>
+                        <td>$25</td>
+                    </tr>
+                    <tr>
+                        <td>Ex-Warehouse Home Consumption Entry</td>
+                        <td>$25</td>
+                    </tr>
+                    <tr>
+                        <td>Ex-Warehouse Export Entry for Goods for Exportation or for Goods for Use as Stores</td>
+                        <td>$25</td>
+                    </tr>
+                    <tr>
+                        <td>Ex-Warehouse Removal Entry</td>
+                        <td>$25</td>
+                    </tr>
+                    <tr>
+                        <td>Re-Warehousing Entry</td>
+                        <td>$25</td>
+                    </tr>
+                    <tr>
+                        <td>Entry Outwards of Vessel </td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td>Miscellaneous Refund Claim </td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td>Application for Payment of Proceeds of Sale of Goods </td>
+                        <td>$75</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="footer" id="footer">
+        <nav>
+            <a target="_blank" href="data/ratesofduty.pdf">Bahamas
+                Duty Guide | </a>
+            <a href="mailto:itodo.timothy@philander.edu?Subject=Contact%20Us" target="_top">Contact Us</a>
+        </nav>
+        <br>
+        <p>&copy Know Da Price 2019</p>
+    </footer>
+
+    <!-- Bootstrap Required Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- My JS  -->
+    <script src="js/script.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>
